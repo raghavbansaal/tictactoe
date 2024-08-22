@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tic Tac Toe</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.cell:hover {
+    background-color: #f0f0f0;
+}
+</style>
+<body>
+  <h1>Tic Tac Toe</h1>
+  <table>
+    <tr>
+      <td><div id="cell-0" class="cell" onclick="makeMove(0)"></div></td>
+      <td><div id="cell-1" class="cell" onclick="makeMove(1)"></div></td>
+      <td><div id="cell-2" class="cell" onclick="makeMove(2)"></div></td>
+    </tr>
+    <tr>
+      <td><div id="cell-3" class="cell" onclick="makeMove(3)"></div></td>
+      <td><div id="cell-4" class="cell" onclick="makeMove(4)"></div></td>
+      <td><div id="cell-5" class="cell" onclick="makeMove(5)"></div></td>
+    </tr>
+    <tr>
+      <td><div id="cell-6" class="cell" onclick="makeMove(6)"></div></td>
+      <td><div id="cell-7" class="cell" onclick="makeMove(7)"></div></td>
+      <td><div id="cell-8" class="cell" onclick="makeMove(8)"></div></td>
+    </tr>
+  </table>
+  <script>
+    let currentPlayer = "X";
+let gameBoard = ["", "", "", "", "", "", "", "", ""];
+
+function makeMove(cellNumber) {
+  if (gameBoard[cellNumber] === "") {
+    gameBoard[cellNumber] = currentPlayer;
+    document.getElementById("cell-" + cellNumber).innerText = currentPlayer;
+    checkWin();
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+  }
+}
+
+function checkWin() {
+  let winConditions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+  for (let i = 0; i < winConditions.length; i++) {
+    let condition = winConditions[i];
+    if (gameBoard[condition[0]] === gameBoard[condition[1]] && gameBoard[condition[1]] === gameBoard[condition[2]] && gameBoard[condition[0]] !== "") {
+      alert("Player " + gameBoard[condition[0]] + " wins!");
+      return;
+    }
+  }
+}
+  </script>
+</body>
+</html>
