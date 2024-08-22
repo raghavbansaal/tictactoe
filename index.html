@@ -5,28 +5,51 @@
 </head>
 <style>
     body {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
+  background-color: #333333;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 table {
-    border-collapse: collapse;
+  border-collapse: collapse;
+  margin: 40px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .cell {
-    width: 50px;
-    height: 50px;
-    border: 1px solid #ccc;
-    text-align: center;
-    font-size: 24px;
-    cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc; 
+  text-align: center;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  background-color: rgba(241, 236, 229, 0.436);
+  border-radius: 10px;
 }
 
 .cell:hover {
-    background-color: #f0f0f0;
+  background-color: #f0f0f0;
+}
+
+.cell:active {
+  background-color: #e0e0e0;
+}
+.headi{
+    color: #C6F4D6;
+    text-align: center;
+    font-weight: bolder;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: xx-large;
 }
 </style>
 <body>
-  <h1>Tic Tac Toe</h1>
+  <p class="headi">Tic Tac Toe<p>
   <table>
     <tr>
       <td><div id="cell-0" class="cell" onclick="makeMove(0)"></div></td>
